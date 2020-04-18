@@ -1,4 +1,3 @@
-import logging
 from collections import OrderedDict
 from functools import wraps
 try:
@@ -14,7 +13,7 @@ except ImportError:
     from urllib2 import Request
     from urllib2 import URLError
 
-from beets import config, dbcore, ui
+from beets import config, dbcore, ui, logging
 from beets.plugins import BeetsPlugin
 from beets.util import confit
 
