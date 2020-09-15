@@ -16,7 +16,7 @@ except ImportError:
 
 from beets import config, dbcore, ui
 from beets.plugins import BeetsPlugin
-from beets.util import confit
+import confuse
 
 
 PLUGIN_HOME = 'https://github.com/nolsto/beets-follow/'
@@ -43,7 +43,7 @@ def credentials_required(func):
                 password_mgr.add_password(None, MUSPY_API, email, password)
                 # Password manager doesn't need userid, but API calls will.
                 config['follow']['userid'].get()
-            except confit.NotFoundError as e:
+            except confuse.NotFoundError as e:
                 msg = '%s. Please see %s' % (e, PLUGIN_HOME + '#muspy-configuration')
                 raise ui.UserError(msg)
         return func(*args, **kwargs)
